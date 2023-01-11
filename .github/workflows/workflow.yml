@@ -1,0 +1,15 @@
+on: 
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  Json_file_read_job:
+    runs-on: windows-latest
+    name: A job to read a json file
+    steps:
+      - uses: actions/checkout@v3
+      - id: read-json
+        uses: ./ #Using the action in this repo and this branch
+        with:
+          json-file: 'test.json'
+      - run: echo "${{ fromJSON(steps.read-json.outputs.json-contents).test }}"

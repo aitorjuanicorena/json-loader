@@ -1,0 +1,19 @@
+name: 'Json file loader'
+description: 'This Github action reads the specified json file and makes its contents available for the workflow'
+inputs:
+  json-file:  # id of input
+    description: 'Json file to read'
+    required: true
+    default: ''
+outputs:
+  json-contents:
+    description: "Contents of the json file"
+    value: ${{ steps.json-file.outputs.contents }}
+runs:
+  using: "composite"
+  steps:
+    - id: json-file
+      run: |
+          $json=cat ${{ inputs.json-file }}
+          echo "contents=${json}" >> $env:GITHUB_OUTPUT
+      shell: powershell
