@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: read-json
-        uses: ajuanicorena/json-loader@feat/first-implementation
+        uses: ajuanicorena/json-loader@refs/heads/feat/first-implementation
         with:
-          json-file: 'config.json'
+          json-file: 'test.json'
       - run: echo "Test value fromJSON ${{ fromJSON(steps.read-json.outputs.json-contents).test }}"
