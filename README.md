@@ -12,7 +12,9 @@ Github action that reads and outputs the contents of a Json file. This Github ac
 # Usage example 
 
 ```yaml
-on: [push]
+on: 
+  pull_request:
+    types: [opened, reopened]
 
 jobs:
   Json_file_read_job:
