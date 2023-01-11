@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: read-json
-        uses: ajuanicorena/json-loader@v1
+        uses: aitorjuanicorena/json-loader@v1
         with:
           json-file: 'config.json'
       - run: echo "One value fromJSON ${{ fromJSON(steps.read-json.outputs.json-contents).<key to read> }}"
