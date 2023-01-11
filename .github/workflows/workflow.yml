@@ -2,12 +2,12 @@ on: [push]
 
 jobs:
   Json_file_read_job:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     name: A job to read a json file
     steps:
       - uses: actions/checkout@v3
       - id: read-json
-        uses: ajuanicorena/json-loader@v1
+        uses: ajuanicorena/json-loader@${{ github.ref_name }}
         with:
           json-file: 'config.json'
-      - run: echo "One value fromJSON ${{ fromJSON(steps.read-json.outputs.json-contents).<key to read> }}"
+      - run: echo "Test value fromJSON ${{ fromJSON(steps.read-json.outputs.json-contents).test }}"

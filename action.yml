@@ -16,3 +16,4 @@ runs:
       run: |
           $json=cat ${{ inputs.json-file }}
           echo "contents=${json}" >> $env:GITHUB_OUTPUT
+      shell: powershell
