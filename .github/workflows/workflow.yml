@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: read-json
-        uses: aitorjuanicorena/json-loader@${{ github.ref }}
+        uses: ./
         with:
           json-file: 'test.json'
-      - run: echo "Test value fromJSON ${{ fromJSON(steps.read-json.outputs.json-contents).test }}"
+      - run: echo "${{ fromJSON(steps.read-json.outputs.json-contents).test }}"
